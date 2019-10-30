@@ -30,13 +30,13 @@ class Song
   end
   
   def self.find_by_name(title)
-    found_name = self.all.detect{|person| person.name == title}
-    found_name
+    found = self.all.detect{|person| person.name == title}
+    found
   end
   
-  def self.find_or_create_by_name(new_name)
-    found_name = self.find_by_name(new_name)
-    found_name ? found_name : self.create_by_name(new_name)
+  def self.find_or_create_by_name(name)
+    found = self.find_by_name(name)
+    found ? found : self.create_by_name(name)
   end
 
   def self.alphabetical
