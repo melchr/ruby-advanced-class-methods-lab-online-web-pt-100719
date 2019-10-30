@@ -33,30 +33,30 @@ class Song
     @@all.find{|n| n.name == name}
   end
   
-  def self.find_or_create_by_name(name)
-    found = self.find_by_name(name)
-    found ? found: self.create_by_name(name)
+  def self.find_or_create_by_name(new_name)
+    found_name = self.find_by_name(new_name)
+    found_name ? found_name : self.create_by_name(new_name)
   end
-  
-   def self.alphabetical
+
+  def self.alphabetical
     self.all.sort_by {|song| song.name}
   end
-  
+
   def self.new_from_filename(filename)
-    arr = filename.split(" - ")
-    arr[1] = arr[1].chomp(".mp3")
+    new_arr = filename.split(" - ")
+    new_arr[1] = new_arr[1].chomp(".mp3")
     song = self.new
-    song.artist_name = arr[0]
-    song.name = arr[1]
+    song.artist_name = new_arr[0]
+    song.name = new_arr[1]
     song
   end
-  
+
   def self.create_from_filename(filename)
-    arr = filename.split(" - ")
-    arr[1] = arr[1].chomp(".mp3")
+    new_arr = filename.split(" - ")
+    new_arr[1] = new_arr[1].chomp(".mp3")
     song = self.new
-    song.artist_name = arr[0]
-    song.name = arr[1]
+    song.artist_name = new_arr[0]
+    song.name = new_arr[1]
     song.save
   end
 
