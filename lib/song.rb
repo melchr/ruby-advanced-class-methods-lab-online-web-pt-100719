@@ -30,8 +30,7 @@ class Song
   end
   
   def self.find_by_name(title)
-    found = self.all.detect{|person| person.name == title}
-    found
+    @@all.find{|n| n.name == name}
   end
   
    def self.alphabetical
