@@ -33,6 +33,10 @@ class Song
     found = self.all.detect{|person| person.name == title}
     found
   end
+  
+   def self.alphabetical
+    self.all.sort_by {|song| song.name}
+  end
 
   def self.destroy_all
     @all = []
